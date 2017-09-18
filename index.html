@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Học AngularJS</title>    
+    <script src="app/Compoments/angular.min.js" ></script>
+    <script src="app/app.js"></script>
+    <link rel="stylesheet" href="app/Compoments/bootstrap.min.css">
+    <link rel="stylesheet" href="app/Compoments/myStyle.css">
+    <script src="app/Compoments/bootstrap.min.js" ></script>
+    <script src="app/Compoments/jquery-1.10.2.min.js" ></script>
+
+</head>
+<body>
+    <div class="container"style="padding-left: 30px;padding-right: 30px" ng-app="myApp" ng-controller="LichLamViec" >
+        <form class="form-group">
+            <input type="text" class="form-control" placeholder="Nhập nội dung làm việc" name="nd"  ng-model="nd">
+            <input type="datetime-local"  name="time" ng-model="time"
+            placeholder="yyyy-MM-ddTHH:mm:ss" min="2017-01-01T00:00:00" max="5000-12-31T00:00:00" /><br>
+            <button type="button" ng-click="addrow()" class="btn btn-primary">Lưu</button>
+            
+        </form>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nội dung</th>
+                    <th>Thời gian</th>
+                    <th>Tiến độ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in dataTUDU" class="{{data.rowcolor}}">
+                        <td>{{data.nd}}</td>
+                        <td>{{data.time}}</td>
+                        <td><input type="checkbox" ng-click="checked($index,$event)" >
+                            <button type="button"  ng-click="remove($index)" class="btn btn-primary">Xóa</button></td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+        
+    </div>
+</body>
+</html>
